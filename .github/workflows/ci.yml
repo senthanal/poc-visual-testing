@@ -37,3 +37,10 @@ jobs:
       - run: npx nx affected -t lint test build
 
       - run: npx nx affected -t vrt
+
+      # Upload backstop html report to GitHub artifacts
+      - name: Upload BackstopJS HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: backstop-report
+          path: apps/demo/backstop_data/html_report
