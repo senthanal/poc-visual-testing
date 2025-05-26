@@ -97,7 +97,7 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "npx backstop test",
+        "command": "npx backstop test --docker",
         "cwd": "apps/demo"
       }
     },
@@ -105,7 +105,7 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "npx backstop approve",
+        "command": "npx backstop approve --docker",
         "cwd": "apps/demo"
       }
     }
