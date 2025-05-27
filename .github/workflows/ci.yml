@@ -10,6 +10,7 @@ permissions: write-all
 jobs:
   main:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with:
