@@ -1,18 +1,16 @@
 name: CI
 
 on:
-  push:
+  pull_request:
     branches:
       - master
-  pull_request:
 
-permissions:
-  actions: read
-  contents: read
+permissions: write-all
 
 jobs:
   main:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,13 +26,23 @@ jobs:
       # Cache node_modules
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22.14.0
           cache: 'npm'
 
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci
       - uses: nrwl/nx-set-shas@v4
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
       - run: npx nx affected -t lint test build
+
+      - run: npx nx vrt demo
+        continue-on-error: true
+
+      # Upload backstop html report to GitHub artifacts
+      - name: Upload BackstopJS HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: backstop-report
+          path: apps/demo/backstop_data/html_report

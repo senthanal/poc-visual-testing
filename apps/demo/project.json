@@ -85,6 +85,28 @@
         "staticFilePath": "dist/apps/demo/browser",
         "spa": true
       }
+    },
+    "vrt": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "start-server-and-test 'nx serve demo' http-get://localhost:4200 'nx run demo:backstop-test'"
+      }
+    },
+    "backstop-test": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx backstop test --config=./backstop.config.js",
+        "cwd": "apps/demo"
+      }
+    },
+    "backstop-approve": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx backstop approve",
+        "cwd": "apps/demo"
+      }
     }
   }
 }
