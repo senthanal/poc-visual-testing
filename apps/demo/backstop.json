@@ -16,13 +16,13 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "BackstopJS Homepage",
+      "label": "Demo app homepage",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://localhost:4200/",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 10000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
