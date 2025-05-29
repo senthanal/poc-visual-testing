@@ -50,6 +50,6 @@
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
   "openReport": false,
-  "debug": false,
+  "debug": true,
   "debugWindow": false
 }
