@@ -89,8 +89,7 @@
     "vrt": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "start-server-and-test 'nx serve demo' http-get://localhost:4200 'nx run demo:backstop-test'",
-        "cwd": "apps/demo"
+        "command": "start-server-and-test 'nx serve demo' http-get://localhost:4200 'nx run demo:backstop-test'"
       }
     },
     "backstop-test": {
