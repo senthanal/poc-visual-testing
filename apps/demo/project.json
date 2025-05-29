@@ -96,7 +96,7 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "npx backstop test",
+        "command": "npx backstop test --config=./backstop.config.js",
         "cwd": "apps/demo"
       }
     },
