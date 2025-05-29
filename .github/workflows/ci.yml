@@ -37,11 +37,8 @@ jobs:
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
       - run: npx nx affected -t lint test build
 
-      - run: npx nx serve demo &
-
-      - run: npx nx backstop-test demo
+      - run: npx nx vrt demo
         continue-on-error: true
-
 
       # Upload backstop html report to GitHub artifacts
       - name: Upload BackstopJS HTML report
