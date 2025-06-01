@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@poc-visual-testing/addon-vrt-backstopjs": [
+        "libs/addon-vrt-backstopjs/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

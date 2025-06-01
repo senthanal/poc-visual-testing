@@ -1,0 +1,38 @@
+{
+  "name": "addon-vrt-backstopjs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/addon-vrt-backstopjs/src",
+  "projectType": "library",
+  "release": {
+    "version": {
+      "manifestRootsToUpdate": ["dist/{projectRoot}"],
+      "currentVersionResolver": "git-tag",
+      "fallbackCurrentVersionResolver": "disk"
+    }
+  },
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/addon-vrt-backstopjs",
+        "main": "libs/addon-vrt-backstopjs/src/index.ts",
+        "tsConfig": "libs/addon-vrt-backstopjs/tsconfig.lib.json",
+        "assets": ["libs/addon-vrt-backstopjs/*.md"]
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/addon-vrt-backstopjs/jest.config.ts"
+      }
+    }
+  }
+}
